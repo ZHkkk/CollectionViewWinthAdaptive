@@ -1,0 +1,1 @@
+CollectionView宽度自适应 
