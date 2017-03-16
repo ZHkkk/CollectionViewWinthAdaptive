@@ -17,6 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     /*
+     
+     
+     
+     
+     
+     
+     
     UICollectionView * collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:layout];
     
      TestCollectionViewFlowLayout * layout = [[TestCollectionViewFlowLayout alloc]init];
