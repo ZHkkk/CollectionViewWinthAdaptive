@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ZHCollectionViewCell : UICollectionViewCell
-
+@property(nonatomic,weak)UILabel * label;
 @end

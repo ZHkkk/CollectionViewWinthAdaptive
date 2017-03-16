@@ -14,6 +14,7 @@
 		BF7448281E7A445300117AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7448271E7A445300117AAB /* Assets.xcassets */; };
 		BF74482B1E7A445300117AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7448291E7A445300117AAB /* LaunchScreen.storyboard */; };
 		BF7448341E7A453400117AAB /* ZHCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7448331E7A453400117AAB /* ZHCollectionViewFlowLayout.m */; };
+		BF74485E1E7AA19E00117AAB /* ZHCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF74485D1E7AA19E00117AAB /* ZHCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		BF74482C1E7A445300117AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF7448321E7A453400117AAB /* ZHCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		BF7448331E7A453400117AAB /* ZHCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		BF74485C1E7AA19E00117AAB /* ZHCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHCollectionViewCell.h; sourceTree = "<group>"; };
+		BF74485D1E7AA19E00117AAB /* ZHCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				BF7448221E7A445300117AAB /* ViewController.m */,
 				BF7448321E7A453400117AAB /* ZHCollectionViewFlowLayout.h */,
 				BF7448331E7A453400117AAB /* ZHCollectionViewFlowLayout.m */,
+				BF74485C1E7AA19E00117AAB /* ZHCollectionViewCell.h */,
+				BF74485D1E7AA19E00117AAB /* ZHCollectionViewCell.m */,
 				BF7448241E7A445300117AAB /* Main.storyboard */,
 				BF7448271E7A445300117AAB /* Assets.xcassets */,
 				BF7448291E7A445300117AAB /* LaunchScreen.storyboard */,
@@ -157,6 +162,7 @@
 			files = (
 				BF7448231E7A445300117AAB /* ViewController.m in Sources */,
 				BF7448201E7A445300117AAB /* AppDelegate.m in Sources */,
+				BF74485E1E7AA19E00117AAB /* ZHCollectionViewCell.m in Sources */,
 				BF7448341E7A453400117AAB /* ZHCollectionViewFlowLayout.m in Sources */,
 				BF74481D1E7A445300117AAB /* main.m in Sources */,
 			);
@@ -315,6 +321,7 @@
 				BF7448311E7A445300117AAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

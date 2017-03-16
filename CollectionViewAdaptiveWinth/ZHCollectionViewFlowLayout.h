@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 @class ZHCollectionViewFlowLayout;
-@protocol UICollectionViewFlowLayoutDelegate <NSObject>
+@protocol ZHCollectionViewFlowLayoutDelegate <NSObject>
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView Customlayout:(ZHCollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
 @interface ZHCollectionViewFlowLayout : UICollectionViewFlowLayout
-@property (nonatomic, weak)  id<UICollectionViewFlowLayoutDelegate> delegate;
+@property (nonatomic, weak)  id<ZHCollectionViewFlowLayoutDelegate> delegate;
 @end
