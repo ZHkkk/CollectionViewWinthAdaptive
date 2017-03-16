@@ -13,6 +13,7 @@
 		BF7448261E7A445300117AAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7448241E7A445300117AAB /* Main.storyboard */; };
 		BF7448281E7A445300117AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7448271E7A445300117AAB /* Assets.xcassets */; };
 		BF74482B1E7A445300117AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7448291E7A445300117AAB /* LaunchScreen.storyboard */; };
+		BF7448341E7A453400117AAB /* ZHCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7448331E7A453400117AAB /* ZHCollectionViewFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		BF7448271E7A445300117AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF74482A1E7A445300117AAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF74482C1E7A445300117AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF7448321E7A453400117AAB /* ZHCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		BF7448331E7A453400117AAB /* ZHCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				BF74481F1E7A445300117AAB /* AppDelegate.m */,
 				BF7448211E7A445300117AAB /* ViewController.h */,
 				BF7448221E7A445300117AAB /* ViewController.m */,
+				BF7448321E7A453400117AAB /* ZHCollectionViewFlowLayout.h */,
+				BF7448331E7A453400117AAB /* ZHCollectionViewFlowLayout.m */,
 				BF7448241E7A445300117AAB /* Main.storyboard */,
 				BF7448271E7A445300117AAB /* Assets.xcassets */,
 				BF7448291E7A445300117AAB /* LaunchScreen.storyboard */,
@@ -152,6 +157,7 @@
 			files = (
 				BF7448231E7A445300117AAB /* ViewController.m in Sources */,
 				BF7448201E7A445300117AAB /* AppDelegate.m in Sources */,
+				BF7448341E7A453400117AAB /* ZHCollectionViewFlowLayout.m in Sources */,
 				BF74481D1E7A445300117AAB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
