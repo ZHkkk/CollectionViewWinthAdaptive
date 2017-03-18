@@ -11,7 +11,6 @@
 @protocol ZHCollectionViewFlowLayoutDelegate <NSObject>
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView Customlayout:(ZHCollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
-
 @end
 
 @interface ZHCollectionViewFlowLayout : UICollectionViewFlowLayout

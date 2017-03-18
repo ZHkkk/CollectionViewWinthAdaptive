@@ -23,40 +23,42 @@ static int const margin = 10;
     
     [super prepareLayout];
     
+    NSInteger sectionS = [self.collectionView numberOfSections];
     
-    NSInteger rows = [self.collectionView numberOfItemsInSection:0];
-    
-    for (int i = 0 ; i < rows; i ++) {
-        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        UICollectionViewLayoutAttributes * layoutAttributeds = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-        CGFloat itemW = [self.delegate collectionView:self.collectionView Customlayout:self sizeForItemAtIndexPath:indexPath];
+    for (int j = 0; j < sectionS; j++) {
+        NSInteger rows = [self.collectionView numberOfItemsInSection:j];
         
-        if (i == 0) {
-            layoutAttributeds.frame = CGRectMake(margin, margin, itemW, 30);
-        }else
-        {
-            CGFloat itemX = 0.0;
+        for (int i = 0 ; i < rows; i ++) {
+            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:i inSection:j];
+            UICollectionViewLayoutAttributes * layoutAttributeds = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+            CGFloat itemW = [self.delegate collectionView:self.collectionView Customlayout:self sizeForItemAtIndexPath:indexPath];
             
-            CGFloat itemY = 0.0;
-            
-            if (CGRectGetMaxX(self.lastItemFrame) + margin + itemW > self.collectionView.frame.size.width) {
-                itemY = CGRectGetMaxY(self.lastItemFrame) + margin;
-                itemX = margin;
+            if (i == 0 && j == 0) {
+                layoutAttributeds.frame = CGRectMake(margin, margin, itemW, 30);
             }else
             {
-                itemY = self.lastItemFrame.origin.y;
-                itemX = CGRectGetMaxX(self.lastItemFrame) + margin;
+                CGFloat itemX = 0.0;
+                
+                CGFloat itemY = 0.0;
+                
+                if (CGRectGetMaxX(self.lastItemFrame) + margin + itemW > self.collectionView.frame.size.width) {
+                    itemY = CGRectGetMaxY(self.lastItemFrame) + margin;
+                    itemX = margin;
+                }else
+                {
+                    itemY = self.lastItemFrame.origin.y;
+                    itemX = CGRectGetMaxX(self.lastItemFrame) + margin;
+                }
+                
+                layoutAttributeds.frame = CGRectMake(itemX, itemY, itemW, 30);
+                
             }
             
-            layoutAttributeds.frame = CGRectMake(itemX, itemY, itemW, 30);
+            [self.attributesArray addObject:layoutAttributeds];
             
+            self.lastItemFrame = layoutAttributeds.frame;
         }
-        
-        [self.attributesArray addObject:layoutAttributeds];
-        
-        self.lastItemFrame = layoutAttributeds.frame;
     }
-    
 }
 
 - (nullable NSArray<__kindof UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
@@ -70,11 +72,13 @@ static int const margin = 10;
         }
     }];
     
-    return allAttributes;
+    return self.attributesArray;
 }
 
 -(CGSize)collectionViewContentSize
 {
     return CGSizeMake(self.collectionView.frame.size.width, CGRectGetMaxY(self.lastItemFrame) + 10);
 }
+
+
 @end
