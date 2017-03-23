@@ -12,6 +12,8 @@
 
 @property(nonatomic,strong)NSMutableArray *  attributesArray;
 
+@property(nonatomic,assign)NSInteger lastSection;
+
 @end
 @implementation ZHCollectionViewFlowLayout
 static int const margin = 10;
@@ -26,15 +28,32 @@ static int const margin = 10;
     NSInteger sectionS = [self.collectionView numberOfSections];
     
     for (int j = 0; j < sectionS; j++) {
+        
         NSInteger rows = [self.collectionView numberOfItemsInSection:j];
+        
+        CGSize headerSize = CGSizeZero;
+        if ([self.delegate respondsToSelector:@selector(collectionView:layout:referenceSizeForHeaderInSection:)]) {
+            headerSize  = [self.delegate collectionView:self.collectionView layout:self referenceSizeForHeaderInSection:j];
+        }
+        
+        UIView * sectionView = nil;
+        
+        if ([self.delegate respondsToSelector:@selector(collectionViewHeader:layout:Section:)]) {
+            sectionView = [self.delegate collectionViewHeader:self.collectionView layout:self Section:j];
+            [self.collectionView addSubview:sectionView];
+        }
+
         
         for (int i = 0 ; i < rows; i ++) {
             NSIndexPath * indexPath = [NSIndexPath indexPathForRow:i inSection:j];
             UICollectionViewLayoutAttributes * layoutAttributeds = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+                    
             CGFloat itemW = [self.delegate collectionView:self.collectionView Customlayout:self sizeForItemAtIndexPath:indexPath];
             
             if (i == 0 && j == 0) {
-                layoutAttributeds.frame = CGRectMake(margin, margin, itemW, 30);
+                
+                layoutAttributeds.frame = CGRectMake(margin, margin + headerSize.height, itemW, 30);
+                sectionView.frame = CGRectMake(0, 0, headerSize.width, headerSize.height);
             }else
             {
                 CGFloat itemX = 0.0;
@@ -42,17 +61,33 @@ static int const margin = 10;
                 CGFloat itemY = 0.0;
                 
                 if (CGRectGetMaxX(self.lastItemFrame) + margin + itemW > self.collectionView.frame.size.width) {
-                    itemY = CGRectGetMaxY(self.lastItemFrame) + margin;
-                    itemX = margin;
+                    if (self.lastSection != j) {
+                        itemY = CGRectGetMaxY(self.lastItemFrame) + margin + + headerSize.height;
+                        itemX = margin;
+                        sectionView.frame = CGRectMake(0, CGRectGetMaxY(self.lastItemFrame), headerSize.width, headerSize.height);
+                    }else
+                    {
+                        itemY = CGRectGetMaxY(self.lastItemFrame) + margin;
+                        itemX = margin;
+                    }
                 }else
                 {
-                    itemY = self.lastItemFrame.origin.y;
-                    itemX = CGRectGetMaxX(self.lastItemFrame) + margin;
+                    if (self.lastSection != j) {
+                        itemY = CGRectGetMaxY(self.lastItemFrame) + margin  + headerSize.height;
+                        itemX = margin;
+                        sectionView.frame = CGRectMake(0, CGRectGetMaxY(self.lastItemFrame), headerSize.width, headerSize.height);
+                    }else
+                    {
+                        itemY = self.lastItemFrame.origin.y;
+                        itemX = CGRectGetMaxX(self.lastItemFrame) + margin;
+                    }
                 }
                 
                 layoutAttributeds.frame = CGRectMake(itemX, itemY, itemW, 30);
                 
             }
+            
+            self.lastSection = j;
             
             [self.attributesArray addObject:layoutAttributeds];
             

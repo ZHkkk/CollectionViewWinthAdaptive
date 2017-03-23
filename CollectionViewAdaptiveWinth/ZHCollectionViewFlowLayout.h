@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 @class ZHCollectionViewFlowLayout;
-@protocol ZHCollectionViewFlowLayoutDelegate <NSObject>
+@protocol ZHCollectionViewFlowLayoutDelegate <UICollectionViewDelegateFlowLayout>
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView Customlayout:(ZHCollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+
+- (UIView *)collectionViewHeader:(UICollectionView *)collectionView layout:(ZHCollectionViewFlowLayout *)collectionViewLayout Section:(NSInteger)section;
+
 @end
 
 @interface ZHCollectionViewFlowLayout : UICollectionViewFlowLayout
